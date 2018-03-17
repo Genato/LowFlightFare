@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LowFlightFare.Models
 {
-    public class Currencies
+    public class Currency
     {
         public int ID { get; set; }
         public string CurrencyCode { get; set; }
