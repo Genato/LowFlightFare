@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using LowFlightFare.BusinessLogic;
+using LowFlightFare.DAL;
+using LowFlightFare.DbContexts;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,15 +32,13 @@ namespace LowFlightFare
         private static void ConfigureServices(IServiceCollection services)
         {
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ///// Add ONTO to DI - Start
+            ///// Add SearchFlights to DI - Start
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //services.AddTransient(typeof(OntoDbContext));
-            //services.AddTransient(typeof(UserSettingsDAL));
-            //services.AddTransient(typeof(LocaleDAL));
-            //services.AddTransient(typeof(UserSettingsLogic));
-            //services.AddTransient(typeof(LocaleLogic));
+            services.AddTransient(typeof(LowFlightFareDbContext));
+            services.AddTransient(typeof(CurrencyDAL));
+            services.AddTransient(typeof(SearchFlightsLogic));
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ///// Add ONTO to DI - Start - End
+            ///// Add SearchFlights to DI - Start - End
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             // Add Controllers to DI(Dependency Injection)
