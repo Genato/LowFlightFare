@@ -12,49 +12,6 @@ footer{
     background-color: #070f3d;
 }
 
-/** Form - "profile-form-right-borde" **/
-.change-password {
-    position: relative;
-    margin: 1%;
-    left: 1%;
-    float: left;
-    width: 30%;
-    padding: 1%;
-}
-
-.change-password a {
-    margin-top: 9px;
-}
-
-.profile-form-right-border {
-    position: relative;
-    width: 55%;
-    border-right: 1px solid #dcd3d3;
-    float: left;
-    margin: 1%;
-    right: -1%;
-    padding: 1%;
-}
-
-.profile-form-right-border div {
-    position: relative;
-}
-
-.profile-form-right-border label {
-    width: 27%;
-    float: left;
-    padding-top: 2%;
-}
-
-.profile-form-right-border input[type=text] {
-    width: 65%;
-}
-
-.profile-form-right-border input[type=submit] {
-    margin-left: 27%;
-}
-/** Form - "profile-form-right-borde" **/
-
 /** DropdownMenu - navbar **/
 .house-icon {
     font-size: 20px;
@@ -137,3 +94,9 @@ footer{
 }
 /*** Admin settings ***/
 
+.custom-div-button{
+    position: relative;
+    clear: left;
+    width: 25%;
+    padding: 15px;
+}
