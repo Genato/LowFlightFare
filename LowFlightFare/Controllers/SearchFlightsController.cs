@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LowFlightFare.BusinessLogic;
+using LowFlightFare.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,37 @@ namespace LowFlightFare.Controllers
 {
     public class SearchFlightsController : Controller
     {
-        // GET: SearchFlights
+        public SearchFlightsController(SearchFlightsLogic searchFlightsLogic)
+        {
+            _SearchFlightsLogic = searchFlightsLogic;
+        }
+
+        [HttpGet]
         public ActionResult SearchFlights()
         {
-            return View();
+            SearchFlightsViewModel searchFlightsViewModel = new SearchFlightsViewModel();
+            searchFlightsViewModel.Currency = _SearchFlightsLogic.Currencies;
+
+            return View(searchFlightsViewModel);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SearchFlights(SearchFlightsViewModel searchFlightsViewModel)
+        {
+
+            return View(searchFlightsViewModel);
+        }
+
+        [HttpGet]
+        public JsonResult SearchAirportByIATAcode(string IATAcode)
+        {
+
+
+            return Json("HELLO", JsonRequestBehavior.AllowGet);
+        }
+
+        //Private members
+        private SearchFlightsLogic _SearchFlightsLogic { get; set; }
     }
 }
