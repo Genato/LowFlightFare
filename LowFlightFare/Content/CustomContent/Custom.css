@@ -100,3 +100,28 @@ footer{
     width: 25%;
     padding: 15px;
 }
+
+/*** Airport IATA code list ***/
+
+.airport-iata-code-list {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    background-color: lightblue;
+    width: 89.5%;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    border-radius: 2px;
+}
+
+.airport-iata-code-list li{
+    padding: 8px;
+}
+
+.airport-iata-code-list li:hover{
+    color: whitesmoke;
+    background-color: #69b1f7;
+}
+
+/*** Airport IATA code list ***/
