@@ -36,6 +36,7 @@ namespace LowFlightFare
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
             services.AddTransient(typeof(LowFlightFareDbContext));
             services.AddTransient(typeof(CurrencyDAL));
+            services.AddTransient(typeof(Airport_IATA_CodesDAL));
             services.AddTransient(typeof(SearchFlightsLogic));
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///// Add SearchFlights to DI - Start - End

@@ -11,7 +11,8 @@ namespace LowFlightFare
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-ui-{version}.js",
-                        "~/Scripts/CustomScripts/CustomScript.js"));
+                        "~/Scripts/CustomScripts/CustomScript.js",
+                        "~/Scripts/CustomScripts/TimePicker.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -30,7 +31,8 @@ namespace LowFlightFare
                       "~/Content/site.css",
                       "~/Content/themes/base/datepicker.css",
                       "~/Content/themes/base/jquery-ui.css",
-                      "~/Content/CustomContent/Custom.css"));
+                      "~/Content/CustomContent/Custom.css",
+                      "~/Content/CustomContent/TimePicker.css"));
         }
     }
 }

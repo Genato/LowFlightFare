@@ -11,7 +11,7 @@ namespace LowFlightFare.DbContexts
     {
         public LowFlightFareDbContext() : base("LowFlightFareConnectionString") { }
 
-        public DbSet<Airport_IATA_codes> AirportIATACodes { get; set; }
+        public DbSet<Airport_IATA_Code> AirportIATACodes { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<SearchParameters> SearchParameters { get; set; }
         public DbSet<SearchResults> SearchResults { get; set; }
@@ -20,7 +20,7 @@ namespace LowFlightFare.DbContexts
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Airport_IATA_codes>().ToTable("airport_IATA_codes");
+            modelBuilder.Entity<Airport_IATA_Code>().ToTable("airport_IATA_codes");
             modelBuilder.Entity<Currency>().ToTable("currencies");
             modelBuilder.Entity<SearchParameters>().ToTable("search_parameters");
             modelBuilder.Entity<SearchResults>().ToTable("search_results");

@@ -1,4 +1,5 @@
 ﻿using LowFlightFare.BusinessLogic;
+using LowFlightFare.Models;
 using LowFlightFare.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,10 @@ namespace LowFlightFare.Controllers
         [HttpGet]
         public ActionResult SearchFlights()
         {
-            SearchFlightsViewModel searchFlightsViewModel = new SearchFlightsViewModel();
-            searchFlightsViewModel.Currency = _SearchFlightsLogic.Currencies;
+            SearchFlightsViewModel searchFlightsViewModel = new SearchFlightsViewModel()
+            {
+                Currency = _SearchFlightsLogic.Currencies
+            };
 
             return View(searchFlightsViewModel);
         }
@@ -33,11 +36,22 @@ namespace LowFlightFare.Controllers
         }
 
         [HttpGet]
-        public JsonResult SearchAirportByIATAcode(string IATAcode)
+        public JsonResult SearchAirportByTownName(string townName)
         {
+            List<Airport_IATA_Code> airport_IATA_Code = _SearchFlightsLogic.GetAirportByTownName(townName);
 
+            //If there is no airport with this IATA code send message in model
+            if (airport_IATA_Code.Count == 0)
+            {
+                airport_IATA_Code.Add(new Airport_IATA_Code()
+                                        {
+                                            IATA_code = "There is no Airport in this town",
+                                            AirportName = "",
+                                            TownName = ""
+                                        });
+            }
 
-            return Json("HELLO", JsonRequestBehavior.AllowGet);
+            return Json(airport_IATA_Code, JsonRequestBehavior.AllowGet);
         }
 
         //Private members

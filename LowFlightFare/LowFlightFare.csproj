@@ -170,6 +170,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LowFlightFareBaseController.cs" />
     <Compile Include="Controllers\SearchFlightsController.cs" />
+    <Compile Include="DAL\Airport_IATA_CodesDAL.cs" />
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="DAL\CurrencyDAL.cs" />
     <Compile Include="DbContexts\LowFlightFareDbContext.cs" />
@@ -212,7 +213,7 @@
       <DependentUpon>201803151320154_initial_create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Airport_IATA_codes.cs" />
+    <Compile Include="Models\Airport_IATA_Code.cs" />
     <Compile Include="Models\Currency.cs" />
     <Compile Include="Models\SearchParameters.cs" />
     <Compile Include="Models\SearchResults.cs" />
@@ -223,6 +224,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CustomContent\Custom.css" />
+    <Content Include="Content\CustomContent\TimePicker.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -276,6 +278,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScript.js" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\CustomScripts\TimePicker.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />

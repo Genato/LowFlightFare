@@ -9,14 +9,18 @@
 
     <div class="form-group col-sm-3">
         @Html.LabelFor(m => m.SearchParameters.From_IATA_code)
-        @Html.TextBox("from_IATA_code", "", htmlAttributes: new { @class = "form-control", id = "from_IATA_code" })
+        @Html.TextBox("from_IATA_code", "", htmlAttributes: new { @class = "form-control", id = "from_IATA_code_TB", required = "required" })
+        <ul id="from_IATA_code_UL" class="airport-iata-code-list">
+        </ul>
         @Html.LabelFor(m => m.SearchParameters.To_IATA_code)
-        @Html.TextBox("to_IATA_code", "", htmlAttributes: new { @class = "form-control" })
+        @Html.TextBox("to_IATA_code", "", htmlAttributes: new { @class = "form-control", id = "to_IATA_code_TB", required = "required" })
+        <ul id="to_IATA_code_UL" class="airport-iata-code-list">
+        </ul>
     </div>
 
     <div class="form-group col-sm-3">
         @Html.LabelFor(m => m.SearchParameters.Depart)
-        @Html.TextBox("depart", "", htmlAttributes: new { @class = "form-control datepicker" })
+        @Html.TextBox("depart", "", htmlAttributes: new { @class = "form-control datepicker", required = "required" })
         @Html.LabelFor(m => m.SearchParameters.Return)
         @Html.TextBox("return", "", htmlAttributes: new { @class = "form-control datepicker" })
     </div>
@@ -33,3 +37,4 @@
     </div>
 
 }
+

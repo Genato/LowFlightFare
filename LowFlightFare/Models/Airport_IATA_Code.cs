@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LowFlightFare.Models
 {
-    public class Airport_IATA_codes
+    public class Airport_IATA_Code
     {
         public int ID { get; set; }
         public string IATA_code { get; set; }
