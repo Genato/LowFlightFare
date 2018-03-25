@@ -12,7 +12,7 @@ namespace LowFlightFare.DAL
         public CurrencyDAL(LowFlightFareDbContext dbContext) : base(dbContext) { }
 
         /// <summary>
-        /// Add UserSettings to DbSet. (Call DbSet.SaveChanges() to insert it into database)
+        /// Add new Currency to DbSet. (Call DbSet.SaveChanges() to insert it into database)
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
@@ -22,7 +22,7 @@ namespace LowFlightFare.DAL
         }
 
         /// <summary>
-        /// Get UserSettings by ID
+        /// Get Currency by ID
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="id"></param>

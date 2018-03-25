@@ -20,6 +20,15 @@ namespace LowFlightFare.DAL
             return airport_IATA_Code;
         }
 
+        public List<Airport_IATA_Code> GetByTownName(string townName)
+        {
+            List<Airport_IATA_Code> listOfAirports = (from airport in _DbContext.AirportIATACodes
+                                                      where airport.TownName.Contains(townName) && airport.IATA_code != null
+                                                      select airport).ToList();
+
+            return listOfAirports;
+        }
+
         //Overriden methods
 
         public override void CreateEntity<T>(T entity)
@@ -31,16 +40,5 @@ namespace LowFlightFare.DAL
         {
             throw new NotImplementedException();
         }
-
-        public List<Airport_IATA_Code> GetByTownName(string townName)
-        {
-            List<Airport_IATA_Code> listOfAirports = (from airport in _DbContext.AirportIATACodes
-                                                      where airport.TownName.Contains(townName) && airport.IATA_code != null
-                                                      select airport).ToList();
-
-            return listOfAirports;
-        }
-
-        //Private members
     }
 }
