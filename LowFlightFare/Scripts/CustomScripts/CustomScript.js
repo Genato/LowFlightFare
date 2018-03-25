@@ -1,16 +1,25 @@
 ﻿$(document).ready(function () {
 
-    $(".datepicker").datetimepicker({
+    /////////////////////////////////////////
+    // Date Picker - Start
+    /////////////////////////////////////////
+
+    $("#datepicker-depart").datetimepicker({
         dateFormat: 'yy-mm-dd',
-        timeFormat: 'hh:mm',
-        onSelect: function (dateTime) {
-            dateTime = dateTime.replace(' ', 'T');
-            $('.datepicker').val(dateTime);
-        }
+        timeFormat: 'HH:mm',
+    });
+
+    $("#datepicker-return").datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'HH:mm',
     });
 
     /////////////////////////////////////////
-    // GET airport IATA code - AJAX => start
+    // Date Picker - End
+    /////////////////////////////////////////
+
+    /////////////////////////////////////////
+    // GET airport IATA code - AJAX => Start
     /////////////////////////////////////////
 
     $('#from_IATA_code_TB').on('input', function () {
