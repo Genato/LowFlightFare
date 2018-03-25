@@ -9,7 +9,6 @@ namespace LowFlightFare.ViewModels
     public class SearchFlightsViewModel
     {
         public SearchParameters SearchParameters { get; set; }
-        public SearchResults SearchResults { get; set; }
         public List<Currency> Currency { get; set; }
     }
 }

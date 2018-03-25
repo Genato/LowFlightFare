@@ -1,6 +1,7 @@
 ﻿using LowFlightFare.BusinessLogic;
 using LowFlightFare.Models;
 using LowFlightFare.ViewModels;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +32,31 @@ namespace LowFlightFare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SearchFlights(SearchFlightsViewModel searchFlightsViewModel)
         {
+            //If "SearchParameters" exists get "SearchResults" by "SearchParametersID" and show it on view-"Results" 
+            if (_SearchFlightsLogic.SearchParametersExists(searchFlightsViewModel.SearchParameters) == false)
+            {
+                ResultsViewModel resultsViewModel = new ResultsViewModel();
+                resultsViewModel.SearchResults = _SearchFlightsLogic.GetSearchResultsBySearchParameterID(_SearchFlightsLogic.GetSearchParametersByParameters(searchFlightsViewModel.SearchParameters).ID)
+                                                                    .OrderBy(x => x.ID)
+                                                                    .ToPagedList(1, 5);
+
+                return View("Results", resultsViewModel);
+            }
+
+            //TODO:
+            // Ako ne postojipretraga po zadanim parametrima onda napravi sljedeće korake
+            // - Pripremi parametre za HTTP Request (sali formatirat u nove varijable jer u bazu spremamo format kakav je na frontu)
+            // - Napravi HTTP Request
+            // - Spremi Rezultate
+            // - Spermi Parametre pretrage
 
             return View(searchFlightsViewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Results(int pageNumber = 1, int pageSize = 5)
+        {
+            return View();
         }
 
         [HttpGet]
