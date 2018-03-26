@@ -9,8 +9,8 @@ namespace LowFlightFare.Models
     {
         public int ID { get; set; }
         public int SearchParametersID { get; set; }
-        public string From_IATA_code { get; set; }
-        public string To_IATA_code { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
         public DateTime Depart { get; set; }
         public DateTime Return { get; set; }
         public int OutboundInterchanges { get; set; }

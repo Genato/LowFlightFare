@@ -228,9 +228,27 @@
     <Compile Include="Migrations\201803251846445_adding_new_Properties.Designer.cs">
       <DependentUpon>201803251846445_adding_new_Properties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803261946554_adding_new_Properties_TEST.cs" />
+    <Compile Include="Migrations\201803261946554_adding_new_Properties_TEST.Designer.cs">
+      <DependentUpon>201803261946554_adding_new_Properties_TEST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803261957267_changing_Properties.cs" />
+    <Compile Include="Migrations\201803261957267_changing_Properties.Designer.cs">
+      <DependentUpon>201803261957267_changing_Properties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Airport_IATA_Code.cs" />
     <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\ResponseModels\BookingInfo.cs" />
+    <Compile Include="Models\ResponseModels\Fare.cs" />
+    <Compile Include="Models\ResponseModels\Flight.cs" />
+    <Compile Include="Models\ResponseModels\Itinerary.cs" />
+    <Compile Include="Models\ResponseModels\Airport.cs" />
+    <Compile Include="Models\ResponseModels\OutboundInbound.cs" />
+    <Compile Include="Models\ResponseModels\PricePerAdult.cs" />
+    <Compile Include="Models\ResponseModels\Response.cs" />
+    <Compile Include="Models\ResponseModels\Restrictions.cs" />
+    <Compile Include="Models\ResponseModels\Result.cs" />
     <Compile Include="Models\SearchParameters.cs" />
     <Compile Include="Models\SearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -373,6 +391,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803251846445_adding_new_Properties.resx">
       <DependentUpon>201803251846445_adding_new_Properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261946554_adding_new_Properties_TEST.resx">
+      <DependentUpon>201803261946554_adding_new_Properties_TEST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261957267_changing_Properties.resx">
+      <DependentUpon>201803261957267_changing_Properties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

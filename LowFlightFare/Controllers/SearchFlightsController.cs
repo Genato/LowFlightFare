@@ -32,8 +32,8 @@ namespace LowFlightFare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SearchFlights(SearchFlightsViewModel searchFlightsViewModel)
         {
-            //If "SearchParameters" exists get "SearchResults" by "SearchParametersID" and show it on view-"Results" 
-            if (_SearchFlightsLogic.SearchParametersExists(searchFlightsViewModel.SearchParameters) == false)
+            //If "SearchParameters" exists get "SearchResults" by "SearchParameters" and show it on view-"Results" 
+            if (_SearchFlightsLogic.SearchParametersExists(searchFlightsViewModel.SearchParameters))
             {
                 ResultsViewModel resultsViewModel = new ResultsViewModel();
                 resultsViewModel.SearchResults = _SearchFlightsLogic.GetSearchResultsBySearchParameterID(_SearchFlightsLogic.GetSearchParametersByParameters(searchFlightsViewModel.SearchParameters).ID)
@@ -43,12 +43,14 @@ namespace LowFlightFare.Controllers
                 return View("Results", resultsViewModel);
             }
 
+            _SearchFlightsLogic.HttRequestToAmadeusAPI(searchFlightsViewModel.SearchParameters);
+
+
+
             //TODO:
             // Ako ne postojipretraga po zadanim parametrima onda napravi sljedeće korake
-            // - Pripremi parametre za HTTP Request (sali formatirat u nove varijable jer u bazu spremamo format kakav je na frontu)
-            // - Napravi HTTP Request
-            // - Spremi Rezultate
-            // - Spermi Parametre pretrage
+            // - Spremi "SearchResults"
+            // - Spermi "SearchParameters"
 
             return View(searchFlightsViewModel);
         }
