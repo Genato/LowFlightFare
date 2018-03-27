@@ -4,7 +4,7 @@
     $.connection.hub.start();
 
     myHub.client.amadeusWebError = function (error) {
-        showNotificationBar(error);
-        AddCookieForNotificationBar();
+        AddCookieForNotificationBar(error, "#ff8158");
+        showNotificationBar();
     };
 });

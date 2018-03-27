@@ -110,13 +110,10 @@
     // Get NotificationBar cookie and show/hide notification bar depending whether cookie is exists or not
     var notificationBarCookie = $.cookie("NotificationBar");
 
-    if (notificationBarCookie === undefined) {
+    if (notificationBarCookie === undefined) 
         hideNotificationBar();
-    }
-    else {
+    else 
         showNotificationBar();
-    }
-    //
 
     // Hide notification bar and remove NotificationBar cookie
     $(".close").click(function () {
@@ -131,20 +128,29 @@
 });
 
 
-//Adds cookie for notification bar. (After you read cookie, if cookie is NULL then hide notification bar otherwise keep it shown)
-function AddCookieForNotificationBar() {
+//Adds cookie for notification bar. (After you read cookie, if cookie is NULL then hide notification bar otherwise keep it shown).
+//Value inside cookie is message that will show in notification bar
+function AddCookieForNotificationBar(message, notificationTypeColor) {
 
     var date = new Date();
     date.setTime(date.getTime() + (10 * 1000)); // 10seconds
 
-    $.cookie('NotificationBar', 'DummyValue', { expires: date });
+    $.cookie('NotificationBar', message + "/" + notificationTypeColor, { expires: date });
 };
 
 function hideNotificationBar() {
     $("#notification").slideUp("slow");
 };
 
-function showNotificationBar(message) {
-    $("#notification span").text(message);
+//Show notification bar.
+//Take values from cookie (messageand notification color that depends on type of message)
+function showNotificationBar() {
+
+    var cookieValues = $.cookie("NotificationBar").split('/');
+    var notificatnotificationTypeColorionType = cookieValues[1];
+    var valueMessage = cookieValues[0];
+
+    $("#notification_text").text(valueMessage);
+    $("#notification").css("background-color", notificatnotificationTypeColorionType);
     $("#notification").slideDown("slow");
 };

@@ -11,6 +11,7 @@ namespace LowFlightFare
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-ui-{version}.js",
+                        "~/Scripts/jquery.cookie.js",
                         "~/Scripts/CustomScripts/CustomScript.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

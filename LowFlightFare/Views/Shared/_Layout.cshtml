@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="notification" class="alert alert-success">
-        <span>  </span>
+        <span id="notification_text"> </span>
         <button class="close">&times;</button>
     </div>
 
@@ -51,7 +51,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-    <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.3.js"></script>
     <script src="~/signalr/hubs"></script>
     <script src="~/Scripts/CustomScripts/SignalR_Client.js"></script>
 </body>

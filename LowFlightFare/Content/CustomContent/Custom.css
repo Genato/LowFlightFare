@@ -64,36 +64,6 @@ footer{
 }
 /** DropdownMenu - navbar **/
 
-/*** NotificationBar ***/
-#notification {
-    background-color: rgba(92, 184, 92, 0.82);
-    color: #000000;
-    margin-bottom: 0px;
-    display: none;
-}
-
-#notification span {
-    position: relative;
-    left: 43%;
-    font-size: 20px; 
-}
-
-#notification button {
-    font-size: 30px; 
-}
-/*** NotificationBar ***/
-
-/*** Admin settings ***/
-.admin-settings a {
-    float: none;
-}
-
-.admin-settings a:hover {
-    background-color: #69b1f7;
-    color: whitesmoke;
-}
-/*** Admin settings ***/
-
 .custom-div-button{
     position: relative;
     clear: left;
@@ -126,6 +96,25 @@ footer{
 
 /*** Airport IATA code list ***/
 
+/*** NotificationBar ***/
+#notification {
+    background-color: #62ffad;
+    color: #000000;
+    margin-bottom: 0px;
+    display: none;
+    text-align: center;
+}
+
+#notification_text {
+    position: relative;
+    font-size: 18px;
+}
+
+#notification button {
+    font-size: 25px;
+}
+/*** NotificationBar ***/
+
 .separate-flights{
     background-color: #5bc0ee;
 }
@@ -147,3 +136,4 @@ footer{
     /*padding: 5%;*/
     text-align: center;
 }
+
