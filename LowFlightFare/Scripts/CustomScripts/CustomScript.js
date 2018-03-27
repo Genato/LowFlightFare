@@ -4,14 +4,12 @@
     // Date Picker - Start
     /////////////////////////////////////////
 
-    $("#datepicker-depart").datetimepicker({
+    $("#datepicker-depart").datepicker({
         dateFormat: 'yy-mm-dd',
-        timeFormat: 'HH:mm',
     });
 
-    $("#datepicker-return").datetimepicker({
+    $("#datepicker-return").datepicker({
         dateFormat: 'yy-mm-dd',
-        timeFormat: 'HH:mm',
     });
 
     /////////////////////////////////////////
