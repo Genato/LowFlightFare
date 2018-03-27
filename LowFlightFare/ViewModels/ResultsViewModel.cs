@@ -9,7 +9,6 @@ namespace LowFlightFare.ViewModels
 {
     public class ResultsViewModel
     {
-        //public List<SearchResults> SearchResults { get; set; }
         public IPagedList<SearchResults> SearchResults { get; set; }
     }
 }

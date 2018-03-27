@@ -125,3 +125,25 @@ footer{
 }
 
 /*** Airport IATA code list ***/
+
+.separate-flights{
+    background-color: #5bc0ee;
+}
+
+.inbound-outbound-header{
+    background-color: #cef2f8;
+}
+
+.results-tableheader{
+    background-color: #d3d3d3;
+}
+
+.results-span-shared-values{
+    position: relative;
+    top: 50px;
+}
+
+.table tbody > tr > .results-td-shared-values {
+    /*padding: 5%;*/
+    text-align: center;
+}

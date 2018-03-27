@@ -5,3 +5,93 @@
 
 <h2>Results</h2>
 
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="results-tableheader">
+            <tr>
+                <th>
+                    <span>Polazište</span>
+                </th>
+                <th>
+                    <span>Odredište</span>
+                </th>
+                <th>
+                    <span>Datum polaska</span>
+                </th>
+                <th>
+                    <span>Broj presjedanja</span>
+                </th>
+                <th>
+                    <span>Broj putnika</span>
+                </th>
+                <th>
+                    <span>Ukupna cijena</span>
+                </th>
+                <th>
+                    <span>Valuta</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SearchResults)
+            {
+                <tr>
+                    <td colspan="4" class="inbound-outbound-header">
+                        Odlazni let
+                    </td>
+                    <td rowspan="4" class="results-td-shared-values">
+                        <span class="results-span-shared-values"> @item.PassangerNumber </span>
+                    </td>
+                    <td rowspan="4" class="results-td-shared-values">
+                        <span class="results-span-shared-values"> @item.Price </span>
+                    </td>
+                    <td rowspan="4" class="results-td-shared-values">
+                        <span class="results-span-shared-values"> @item.Currency </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @item.From_Outbound
+                    </td>
+                    <td>
+                        @item.To_Outbound
+                    </td>
+                    <td>
+                        @item.Depart.Replace('T', ' ')
+                    </td>
+                    <td>
+                        @item.OutboundInterchanges
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="inbound-outbound-header">
+                        Povratni let
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @item.From_Inbound
+                    </td>
+                    <td>
+                        @item.To_Inbound
+                    </td>
+                    <td>
+                        @item.Return.Replace('T', ' ')
+                    </td>
+                    <td>
+                        @item.ReturnInterchanges
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" class="separate-flights">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<hr />
+
+Page @(Model.SearchResults.PageCount < Model.SearchResults.PageNumber ? 0 : Model.SearchResults.PageNumber) of @Model.SearchResults.PageCount
+
+@Html.PagedListPager(Model.SearchResults, pageNumber => Url.Action("Results", new { pageNumber, searchParametersID = Model.SearchResults.First().SearchParametersID })) 

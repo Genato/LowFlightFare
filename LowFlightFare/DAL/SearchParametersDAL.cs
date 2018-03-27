@@ -36,7 +36,7 @@ namespace LowFlightFare.DAL
         /// <returns></returns>
         public override void CreateEntity<T>(T entity)
         {
-            throw new NotImplementedException();
+            _DbContext.SearchParameters.Add((SearchParameters)Convert.ChangeType(entity, typeof(SearchParameters)));
         }
 
         /// <summary>

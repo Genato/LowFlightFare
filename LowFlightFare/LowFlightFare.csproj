@@ -236,6 +236,26 @@
     <Compile Include="Migrations\201803261957267_changing_Properties.Designer.cs">
       <DependentUpon>201803261957267_changing_Properties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803271112035_Added_Response_models.cs" />
+    <Compile Include="Migrations\201803271112035_Added_Response_models.Designer.cs">
+      <DependentUpon>201803271112035_Added_Response_models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803271121385_removing_resonse_models.cs" />
+    <Compile Include="Migrations\201803271121385_removing_resonse_models.Designer.cs">
+      <DependentUpon>201803271121385_removing_resonse_models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803271141462_renamed_properties.cs" />
+    <Compile Include="Migrations\201803271141462_renamed_properties.Designer.cs">
+      <DependentUpon>201803271141462_renamed_properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803271239503_renameing_properties.cs" />
+    <Compile Include="Migrations\201803271239503_renameing_properties.Designer.cs">
+      <DependentUpon>201803271239503_renameing_properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803271444415_separated_inbound_from_outbound_properties.cs" />
+    <Compile Include="Migrations\201803271444415_separated_inbound_from_outbound_properties.Designer.cs">
+      <DependentUpon>201803271444415_separated_inbound_from_outbound_properties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Airport_IATA_Code.cs" />
     <Compile Include="Models\Currency.cs" />
@@ -259,7 +279,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CustomContent\Custom.css" />
-    <Content Include="Content\CustomContent\TimePicker.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -314,7 +333,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\CustomScript.js" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
-    <Content Include="Scripts\CustomScripts\TimePicker.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
@@ -397,6 +415,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803261957267_changing_Properties.resx">
       <DependentUpon>201803261957267_changing_Properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271112035_Added_Response_models.resx">
+      <DependentUpon>201803271112035_Added_Response_models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271121385_removing_resonse_models.resx">
+      <DependentUpon>201803271121385_removing_resonse_models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271141462_renamed_properties.resx">
+      <DependentUpon>201803271141462_renamed_properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271239503_renameing_properties.resx">
+      <DependentUpon>201803271239503_renameing_properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271444415_separated_inbound_from_outbound_properties.resx">
+      <DependentUpon>201803271444415_separated_inbound_from_outbound_properties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

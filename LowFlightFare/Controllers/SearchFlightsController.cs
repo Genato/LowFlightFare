@@ -32,33 +32,40 @@ namespace LowFlightFare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SearchFlights(SearchFlightsViewModel searchFlightsViewModel)
         {
+            ResultsViewModel resultsViewModel = new ResultsViewModel();
+
             //If "SearchParameters" exists get "SearchResults" by "SearchParameters" and show it on view-"Results" 
             if (_SearchFlightsLogic.SearchParametersExists(searchFlightsViewModel.SearchParameters))
             {
-                ResultsViewModel resultsViewModel = new ResultsViewModel();
                 resultsViewModel.SearchResults = _SearchFlightsLogic.GetSearchResultsBySearchParameterID(_SearchFlightsLogic.GetSearchParametersByParameters(searchFlightsViewModel.SearchParameters).ID)
-                                                                    .OrderBy(x => x.ID)
+                                                                    .OrderBy(x => x.Depart)
                                                                     .ToPagedList(1, 5);
 
-                return View("Results", resultsViewModel);
             }
 
-            _SearchFlightsLogic.HttRequestToAmadeusAPI(searchFlightsViewModel.SearchParameters);
+            //Http request to Amadeus
+            List<SearchResults> listOfResults = _SearchFlightsLogic.HttRequestToAmadeusAPI(searchFlightsViewModel.SearchParameters);
 
+            if(listOfResults.Count > 0)
+            {
+                _SearchFlightsLogic.SaveSearchParameters(searchFlightsViewModel.SearchParameters);
+                _SearchFlightsLogic.LinkSearchParametersToSearchResults(listOfResults, _SearchFlightsLogic.GetSearchParametersByParameters(searchFlightsViewModel.SearchParameters).ID);
+                _SearchFlightsLogic.SaveListOfSearchResults(listOfResults);
+                resultsViewModel.SearchResults = listOfResults.OrderBy(x => x.ID).ToPagedList(1, 3);
+            }
 
-
-            //TODO:
-            // Ako ne postojipretraga po zadanim parametrima onda napravi sljedeće korake
-            // - Spremi "SearchResults"
-            // - Spermi "SearchParameters"
-
-            return View(searchFlightsViewModel);
+            return View("Results", resultsViewModel);
         }
 
         [HttpGet]
-        public ActionResult Results(int pageNumber = 1, int pageSize = 5)
+        public ActionResult Results(int searchParametersID, int pageNumber = 1, int pageSize = 3)
         {
-            return View();
+            ResultsViewModel searchFlightsViewModel = new ResultsViewModel()
+            {
+                SearchResults = _SearchFlightsLogic.GetSearchResultsBySearchParameterID(searchParametersID).OrderBy(x => x.ID).ToPagedList(pageNumber, pageSize)
+            };
+
+            return View(searchFlightsViewModel);
         }
 
         [HttpGet]

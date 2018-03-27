@@ -23,14 +23,13 @@ namespace LowFlightFare.BusinessLogic
             _SearchResultsDAL = searchResultsDAL;
         }
 
-        ///Public methods///
-        
-        //Http
+        #region Amadeus Http request - methods
+
         /// <summary>
         /// Make Http GET request to Amadeus
         /// </summary>
         /// <param name="searchParameters"></param>
-        public SearchResults HttRequestToAmadeusAPI(SearchParameters searchParameters)
+        public List<SearchResults> HttRequestToAmadeusAPI(SearchParameters searchParameters)
         {
             PrepareSearchParametersForHttpRequest(searchParameters);
             ConstructUrl();
@@ -43,13 +42,10 @@ namespace LowFlightFare.BusinessLogic
             using (StreamReader reader = new StreamReader(stream))
             {
                 string json = reader.ReadToEnd();
-                Response flightResults = JsonConvert.DeserializeObject<Response>(json);
+                Response flightResults = JsonConvert.DeserializeObject<Response>(json);                
+
+                return PrepareSearchResultsForView(flightResults);
             }
-
-            //TODO
-            // Parse response to SearchResults
-
-            return new SearchResults();
         }
 
         private void PrepareSearchParametersForHttpRequest(SearchParameters searchParameters)
@@ -58,8 +54,8 @@ namespace LowFlightFare.BusinessLogic
             _From_IATA_CODE = searchParameters.From_IATA_code;
             _To_IATA_CODE = searchParameters.To_IATA_code;
             _PassangerNumber = searchParameters.PassangerNumber > 0 ? searchParameters.PassangerNumber.ToString() : "0";
-            _Depart = searchParameters.Depart.ToString("yyyy-MM-ddTHH:mm");
-            _Return = searchParameters.Return.ToString("yyyy-MM-ddTHH:mm");
+            _Depart = searchParameters.Depart.ToString("yyyy-MM-dd");
+            _Return = searchParameters.Return.ToString("yyyy-MM-dd");
         }
 
         private void ConstructUrl()
@@ -69,11 +65,11 @@ namespace LowFlightFare.BusinessLogic
             builder.Append("apikey=" + _AmadeusApikey);
             builder.Append("&origin=" + _From_IATA_CODE);
             builder.Append("&destination=" + _To_IATA_CODE);
-            builder.Append("&arrive_by=" + _Depart);
+            builder.Append("&departure_date=" + _Depart);
             builder.Append("&currency=" + _Currency);
 
             if (_Return.Contains("0001-01-01T00:00") == false)
-                builder.Append("&return_by=" + _Return);
+                builder.Append("&return_date=" + _Return);
 
             if (_PassangerNumber != ("0"))
                 builder.Append("&adults=" + _PassangerNumber);
@@ -81,11 +77,60 @@ namespace LowFlightFare.BusinessLogic
             _AmadeusApiUrl = builder.ToString();
         }
 
-        //Airport_IATA_Code methods
+        private List<SearchResults> PrepareSearchResultsForView(Response response)
+        {
+            List<SearchResults> listOfResults = new List<SearchResults>(response.results.Count);
+
+            foreach (var result in response.results)
+            {
+                SearchResults searchResults = new SearchResults();
+                searchResults.Currency = response.currency;
+                searchResults.Price = result.fare.total_price;
+                searchResults.PassangerNumber = (int)(Convert.ToDouble(result.fare.total_price) / Convert.ToDouble(result.fare.price_per_adult.total_fare));
+
+                foreach (var itinerary in result.itineraries)
+                {
+                    //Odlazni let
+                    searchResults.Depart = itinerary.outbound.flights.First().departs_at;
+                    searchResults.From_Outbound = itinerary.outbound.flights.First().origin.airport;
+                    searchResults.To_Outbound = itinerary.outbound.flights.Last().destination.airport;
+                    searchResults.OutboundInterchanges = itinerary.outbound.flights.Count;
+
+                    //Povratni let
+                    searchResults.Return = itinerary.inbound.flights.First().departs_at;
+                    searchResults.From_Inbound = itinerary.inbound.flights.First().origin.airport;
+                    searchResults.To_Inbound = itinerary.inbound.flights.Last().destination.airport;
+                    searchResults.ReturnInterchanges = itinerary.inbound.flights.Count;
+                }
+
+                listOfResults.Add(searchResults);
+            }
+
+            return listOfResults;
+        }
+
+        #endregion
+
+        #region Airport_IATA_Code - methods
+
+        /// <summary>
+        /// Get Airport by IATA code.
+        /// </summary>
+        /// <param name="IATA_code"></param>
+        /// <returns></returns>
         public Airport_IATA_Code GetAirportByIATACode(string IATA_code) => _Airport_IATA_CodesDAL.GetByIATACode(IATA_code);
+
+        /// <summary>
+        /// Get Airport by townname.
+        /// </summary>
+        /// <param name="townName"></param>
+        /// <returns></returns>
         public List<Airport_IATA_Code> GetAirportByTownName(string townName) => _Airport_IATA_CodesDAL.GetByTownName(townName);
 
-        //SearchResults methods
+        #endregion
+
+        #region SearchResults - methods
+
         /// <summary>
         /// Get list of SearchResults by SearchParametersID
         /// </summary>
@@ -93,19 +138,44 @@ namespace LowFlightFare.BusinessLogic
         /// <returns></returns>
         public List<SearchResults> GetSearchResultsBySearchParameterID(int searchParameterID) => _SearchResultsDAL.GetBySearchParametersID(searchParameterID);
 
-        //SearchParameters methods
+        /// <summary>
+        /// Create range of SearchResult entities
+        /// </summary>
+        /// <param name="listOdResults"></param>
+        /// <returns></returns>
+        public int SaveListOfSearchResults(List<SearchResults> listOdResults)
+        {
+            _SearchResultsDAL.CreateEntities(listOdResults);
+
+            return _SearchResultsDAL.UpdateDatabase();
+        }
+
+        public void LinkSearchParametersToSearchResults(List<SearchResults> searchResults, int searchParametersID)
+        {
+            foreach (var item in searchResults)
+            {
+                item.SearchParametersID = searchParametersID;
+            }
+        }
+
+        #endregion
+
+        #region SearchParameters - methods
+
         /// <summary>
         /// Check if SearchParameters exists by SearchParametersID
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
         public bool SearchParametersExists(int ID) => _SearchParametersDAL.GetByID<SearchParameters>(ID) == null ? false : true;
+
         /// <summary>
         /// Check if SearchParameters exists by all parameters except ID
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
         public bool SearchParametersExists(SearchParameters searchParameters) => _SearchParametersDAL.GetByParametersExceptID(searchParameters) == null ? false : true;
+
         /// <summary>
         /// Get SearchParameters by all parameters except ID
         /// </summary>
@@ -113,21 +183,38 @@ namespace LowFlightFare.BusinessLogic
         /// <returns></returns>
         public SearchParameters GetSearchParametersByParameters(SearchParameters searchParameters) => _SearchParametersDAL.GetByParametersExceptID(searchParameters);
 
-        ///Public members///
+        /// <summary>
+        /// Create SearchParamters entity
+        /// </summary>
+        /// <param name="searchParameters"></param>
+        /// <returns></returns>
+        public int SaveSearchParameters(SearchParameters searchParameters)
+        {
+            _SearchParametersDAL.CreateEntity<SearchParameters>(searchParameters);
+
+            return _SearchParametersDAL.UpdateDatabase();
+        }
+
+        #endregion
+
+        #region Public members
 
         /// <summary>
         /// List of currencies.
         /// </summary>
         public List<Currency> Currencies { get { return _CurrencyDAL.GetAll<Currency>(); } }
 
-        //Private members
+        #endregion
+
+        #region Private members
+
+        //DALs
         private CurrencyDAL _CurrencyDAL { get; set; }
         private Airport_IATA_CodesDAL _Airport_IATA_CodesDAL { get; set; }
         private SearchParametersDAL _SearchParametersDAL { get; set; }
         private SearchResultsDAL _SearchResultsDAL { get; set; }
 
-        //Private - Amadeus members
-        //private string _AmadeusApiUrl { get { return ConfigurationManager.AppSettings["AMADEUS_API_URL"]; } set {; } }
+        //Amadeus
         private string _AmadeusApiUrl { get; set; } = ConfigurationManager.AppSettings["AMADEUS_API_URL"];
         private string _AmadeusApikey { get { return ConfigurationManager.AppSettings["AMADEUS_API_KEY"]; } }
         public string _Currency { get; set; }
@@ -136,5 +223,7 @@ namespace LowFlightFare.BusinessLogic
         public string _From_IATA_CODE { get; set; }
         public string _To_IATA_CODE { get; set; }
         public string _PassangerNumber { get; set; }
+
+        #endregion
     }
 }

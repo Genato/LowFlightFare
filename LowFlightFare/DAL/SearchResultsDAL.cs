@@ -23,6 +23,11 @@ namespace LowFlightFare.DAL
                     select result).ToList();
         }
 
+        public void CreateEntities(List<SearchResults> listOfResults)
+        {
+            _DbContext.SearchResults.AddRange(listOfResults);
+        }
+
         public override void CreateEntity<T>(T entity)
         {
             throw new NotImplementedException();
