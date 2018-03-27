@@ -242,3 +242,5 @@ ModelManifest.xml
 .fake/
 /Helper_Queries.sql
 *.cd
+Logs/Exception_Example.txt
+Logs/Exception*.txt

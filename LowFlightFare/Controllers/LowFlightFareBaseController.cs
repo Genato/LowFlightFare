@@ -1,4 +1,5 @@
 ﻿using LowFlightFare.Localization.Extensions;
+using LowFlightFare.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,9 @@ namespace LowFlightFare.Controllers
         /// <param name="filterContext"></param>
         protected override void OnException(ExceptionContext filterContext)
         {
+            Logger log = new Logger();
+            log.LogException(filterContext);
+
             base.OnException(filterContext);
         }
     }
