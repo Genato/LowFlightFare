@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -34,18 +35,34 @@ namespace LowFlightFare.BusinessLogic
             PrepareSearchParametersForHttpRequest(searchParameters);
             ConstructUrl();
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(_AmadeusApiUrl);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
+            Response flightResults = new Response();
 
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            try
             {
-                string json = reader.ReadToEnd();
-                Response flightResults = JsonConvert.DeserializeObject<Response>(json);                
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(_AmadeusApiUrl);
+                request.AutomaticDecompression = DecompressionMethods.GZip;
 
-                return PrepareSearchResultsForView(flightResults);
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string json = reader.ReadToEnd();
+                    flightResults = JsonConvert.DeserializeObject<Response>(json);
+
+                    return PrepareSearchResultsForView(flightResults);
+                }
             }
+            catch (WebException webExc)
+            {
+                using (var stream = webExc.Response.GetResponseStream())
+                using (var reader = new StreamReader(stream))
+                {
+                    Debug.WriteLine(reader.ReadToEnd());
+                }
+            }
+
+            // If WebException occure empty list of Search results 
+            return new List<SearchResults>(0);
         }
 
         private void PrepareSearchParametersForHttpRequest(SearchParameters searchParameters)

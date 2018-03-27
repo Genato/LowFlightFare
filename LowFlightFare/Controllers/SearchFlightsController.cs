@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace LowFlightFare.Controllers
 {
-    public class SearchFlightsController : Controller
+    public class SearchFlightsController : LowFlightFareBaseController
     {
         public SearchFlightsController(SearchFlightsLogic searchFlightsLogic)
         {
@@ -40,19 +40,22 @@ namespace LowFlightFare.Controllers
                 resultsViewModel.SearchResults = _SearchFlightsLogic.GetSearchResultsBySearchParameterID(_SearchFlightsLogic.GetSearchParametersByParameters(searchFlightsViewModel.SearchParameters).ID)
                                                                     .OrderBy(x => x.Depart)
                                                                     .ToPagedList(1, 5);
-
             }
 
             //Http request to Amadeus
             List<SearchResults> listOfResults = _SearchFlightsLogic.HttRequestToAmadeusAPI(searchFlightsViewModel.SearchParameters);
 
-            if(listOfResults.Count > 0)
-            {
-                _SearchFlightsLogic.SaveSearchParameters(searchFlightsViewModel.SearchParameters);
-                _SearchFlightsLogic.LinkSearchParametersToSearchResults(listOfResults, _SearchFlightsLogic.GetSearchParametersByParameters(searchFlightsViewModel.SearchParameters).ID);
-                _SearchFlightsLogic.SaveListOfSearchResults(listOfResults);
-                resultsViewModel.SearchResults = listOfResults.OrderBy(x => x.ID).ToPagedList(1, 3);
-            }
+            //If there are no results something went wrong (redirect back to SearchFlights view)
+            if (listOfResults.Count == 0)
+                return RedirectToAction("SearchFlights");
+
+            //Save SearchParameters and SearchResults
+            _SearchFlightsLogic.SaveSearchParameters(searchFlightsViewModel.SearchParameters);
+            _SearchFlightsLogic.LinkSearchParametersToSearchResults(listOfResults, _SearchFlightsLogic.GetSearchParametersByParameters(searchFlightsViewModel.SearchParameters).ID);
+            _SearchFlightsLogic.SaveListOfSearchResults(listOfResults);
+
+            //Add SearchResults to ViewModel as PagedList
+            resultsViewModel.SearchResults = listOfResults.OrderBy(x => x.ID).ToPagedList(1, 3);
 
             return View("Results", resultsViewModel);
         }
