@@ -291,6 +291,8 @@
     <Compile Include="Models\SearchParameters.cs" />
     <Compile Include="Models\SearchResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalR\LowFlightFareHub.cs.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ResultsViewModel.cs" />
     <Compile Include="ViewModels\SearchFlightsViewModel.cs" />
   </ItemGroup>
@@ -353,6 +355,7 @@
     <Content Include="Scripts\CustomScripts\CustomScript.js" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <None Include="Scripts\jquery-2.2.4-vsdoc.js" />
+    <Content Include="Scripts\CustomScripts\SignalR_Client.js" />
     <Content Include="Scripts\jquery-2.2.4.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />

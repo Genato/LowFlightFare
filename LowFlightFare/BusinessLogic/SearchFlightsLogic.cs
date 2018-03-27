@@ -1,6 +1,8 @@
 ﻿using LowFlightFare.DAL;
+using LowFlightFare.Localization.Extensions;
 using LowFlightFare.Models;
 using LowFlightFare.Models.ResponseModels;
+using LowFlightFare.SignalR;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,12 +18,13 @@ namespace LowFlightFare.BusinessLogic
 {
     public class SearchFlightsLogic : BusinessLogic
     {
-        public SearchFlightsLogic(CurrencyDAL currenciesDAL, Airport_IATA_CodesDAL airport_IATA_CodesDAL, SearchParametersDAL searchParametersDAL, SearchResultsDAL searchResultsDAL)
+        public SearchFlightsLogic(CurrencyDAL currenciesDAL, Airport_IATA_CodesDAL airport_IATA_CodesDAL, SearchParametersDAL searchParametersDAL, SearchResultsDAL searchResultsDAL, LowFlightFareHub lowFlightFareHub)
         {
             _CurrencyDAL = currenciesDAL;
             _Airport_IATA_CodesDAL = airport_IATA_CodesDAL;
             _SearchParametersDAL = searchParametersDAL;
             _SearchResultsDAL = searchResultsDAL;
+            _LowFlightFareHub = lowFlightFareHub;
         }
 
         #region Amadeus Http request - methods
@@ -57,7 +60,7 @@ namespace LowFlightFare.BusinessLogic
                 using (var stream = webExc.Response.GetResponseStream())
                 using (var reader = new StreamReader(stream))
                 {
-
+                    _LowFlightFareHub.AmadeusWebError(LocalizationExtension.GetWebErrorMsg(reader.ReadToEnd()));
                     Debug.WriteLine(reader.ReadToEnd());
                 }
             }
@@ -241,6 +244,9 @@ namespace LowFlightFare.BusinessLogic
         public string _From_IATA_CODE { get; set; }
         public string _To_IATA_CODE { get; set; }
         public string _PassangerNumber { get; set; }
+
+        //SignalR
+        public LowFlightFareHub _LowFlightFareHub { get; set; }
 
         #endregion
     }

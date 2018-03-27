@@ -1,6 +1,7 @@
 ﻿using LowFlightFare.BusinessLogic;
 using LowFlightFare.DAL;
 using LowFlightFare.DbContexts;
+using LowFlightFare.SignalR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ namespace LowFlightFare
             services.AddTransient(typeof(Airport_IATA_CodesDAL));
             services.AddTransient(typeof(SearchParametersDAL));
             services.AddTransient(typeof(SearchResultsDAL));
+            services.AddTransient(typeof(LowFlightFareHub));
             services.AddTransient(typeof(SearchFlightsLogic));
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///// Add SearchFlights to DI - Start - End
