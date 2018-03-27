@@ -117,4 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DepartureDate" xml:space="preserve">
+    <value>Datum polaska trebao bi biti nakon današnjeg datuma.</value>
+  </data>
+  <data name="DestinationIATACode" xml:space="preserve">
+    <value>Odredišni IATA kod nije u pravom formatu.</value>
+  </data>
+  <data name="NoItinerary" xml:space="preserve">
+    <value>Nema letova za navedene parametre.</value>
+  </data>
+  <data name="OriginIATACode" xml:space="preserve">
+    <value>Polazišni IATA kod nije u pravom formatu.</value>
+  </data>
+  <data name="Passangers" xml:space="preserve">
+    <value>Kada je navedeno, broj odraslih osoba trebao bi biti cijeli broj između 0 i 9.</value>
+  </data>
+  <data name="ReturnDate" xml:space="preserve">
+    <value>Datum povratka trebao bi biti nakon datuma odlaska.</value>
+  </data>
 </root>

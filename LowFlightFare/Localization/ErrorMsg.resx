@@ -117,4 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DepartureDate" xml:space="preserve">
+    <value>Departure date should be after today's date</value>
+  </data>
+  <data name="DestinationIATACode" xml:space="preserve">
+    <value>The destination IATA code is not in right format</value>
+  </data>
+  <data name="NoItinerary" xml:space="preserve">
+    <value>There are no Itinerary for this parameters</value>
+  </data>
+  <data name="OriginIATACode" xml:space="preserve">
+    <value>The origin IATA code is not in right format</value>
+  </data>
+  <data name="Passangers" xml:space="preserve">
+    <value>When specified, the number of adults should be an integer between 0 and 9</value>
+  </data>
+  <data name="ReturnDate" xml:space="preserve">
+    <value>Return date should be after departure date</value>
+  </data>
 </root>

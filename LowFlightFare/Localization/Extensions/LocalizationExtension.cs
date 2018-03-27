@@ -31,5 +31,7 @@ namespace LowFlightFare.Localization.Extensions
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(lang);
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(lang);
         }
+
+         
     }
 }

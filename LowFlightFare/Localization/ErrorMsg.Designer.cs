@@ -19,7 +19,7 @@ namespace LowFlightFare.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class ErrorMsg {
@@ -57,6 +57,60 @@ namespace LowFlightFare.Localization {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departure date should be after today&apos;s date.
+        /// </summary>
+        public static string DepartureDate {
+            get {
+                return ResourceManager.GetString("DepartureDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The destination IATA code is not in right format.
+        /// </summary>
+        public static string DestinationIATACode {
+            get {
+                return ResourceManager.GetString("DestinationIATACode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no Itinerary for this parameters.
+        /// </summary>
+        public static string NoItinerary {
+            get {
+                return ResourceManager.GetString("NoItinerary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The origin IATA code is not in right format.
+        /// </summary>
+        public static string OriginIATACode {
+            get {
+                return ResourceManager.GetString("OriginIATACode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When specified, the number of adults should be an integer between 0 and 9.
+        /// </summary>
+        public static string Passangers {
+            get {
+                return ResourceManager.GetString("Passangers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Return date should be after departure date.
+        /// </summary>
+        public static string ReturnDate {
+            get {
+                return ResourceManager.GetString("ReturnDate", resourceCulture);
             }
         }
     }
