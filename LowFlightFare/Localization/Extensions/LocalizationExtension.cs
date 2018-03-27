@@ -32,6 +32,22 @@ namespace LowFlightFare.Localization.Extensions
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(lang);
         }
 
-         
+        public static string GetWebErrorMsg(string message)
+        {
+            if (message.Contains("The origin should be a three letter IATA location code"))
+                return ErrorMsg.OriginIATACode;
+            else if (message.Contains("The destination should be a three letter IATA location code"))
+                return ErrorMsg.DestinationIATACode;
+            else if (message.Contains("No itinerary found for requested segment"))
+                return ErrorMsg.NoItinerary;
+            else if (message.Contains("Departure date should be after today's date"))
+                return ErrorMsg.DepartureDate;
+            else if (message.Contains("Return date should be after departure date"))
+                return ErrorMsg.ReturnDate;
+            else if (message.Contains("When specified, the number of adults should be an integer between 0 and 9"))
+                return ErrorMsg.Passangers;
+
+            return "";
+        }
     }
 }

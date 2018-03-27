@@ -57,6 +57,7 @@ namespace LowFlightFare.BusinessLogic
                 using (var stream = webExc.Response.GetResponseStream())
                 using (var reader = new StreamReader(stream))
                 {
+
                     Debug.WriteLine(reader.ReadToEnd());
                 }
             }
