@@ -19,7 +19,7 @@ namespace LowFlightFare.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Labels {
@@ -106,6 +106,15 @@ namespace LowFlightFare.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Currency.
+        /// </summary>
+        public static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current email.
         /// </summary>
         public static string CurrentEmail {
@@ -120,6 +129,24 @@ namespace LowFlightFare.Localization {
         public static string CurrentPassword {
             get {
                 return ResourceManager.GetString("CurrentPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departure date.
+        /// </summary>
+        public static string DepartureDate {
+            get {
+                return ResourceManager.GetString("DepartureDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Destination.
+        /// </summary>
+        public static string Destination {
+            get {
+                return ResourceManager.GetString("Destination", resourceCulture);
             }
         }
         
@@ -169,6 +196,15 @@ namespace LowFlightFare.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inbound flight.
+        /// </summary>
+        public static string InboundFlight {
+            get {
+                return ResourceManager.GetString("InboundFlight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log in.
         /// </summary>
         public static string LogIn {
@@ -201,6 +237,51 @@ namespace LowFlightFare.Localization {
         public static string NewPassword {
             get {
                 return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of intergchanges.
+        /// </summary>
+        public static string NumberOfInterchanges {
+            get {
+                return ResourceManager.GetString("NumberOfInterchanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Origin.
+        /// </summary>
+        public static string Origin {
+            get {
+                return ResourceManager.GetString("Origin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outbound flight.
+        /// </summary>
+        public static string OutboundFlight {
+            get {
+                return ResourceManager.GetString("OutboundFlight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page.
+        /// </summary>
+        public static string Page {
+            get {
+                return ResourceManager.GetString("Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of passangers.
+        /// </summary>
+        public static string PassangerNumber {
+            get {
+                return ResourceManager.GetString("PassangerNumber", resourceCulture);
             }
         }
         
@@ -241,6 +322,15 @@ namespace LowFlightFare.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Return date.
+        /// </summary>
+        public static string ReturnDate {
+            get {
+                return ResourceManager.GetString("ReturnDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create new role.
         /// </summary>
         public static string RoleCreate {
@@ -277,11 +367,56 @@ namespace LowFlightFare.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchButton {
+            get {
+                return ResourceManager.GetString("SearchButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search fare flights.
+        /// </summary>
+        public static string SearchFareFlights {
+            get {
+                return ResourceManager.GetString("SearchFareFlights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search flights.
+        /// </summary>
+        public static string SearchFlights {
+            get {
+                return ResourceManager.GetString("SearchFlights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search results.
+        /// </summary>
+        public static string SearchResults {
+            get {
+                return ResourceManager.GetString("SearchResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select language.
         /// </summary>
         public static string SelectLanguage {
             get {
                 return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total price.
+        /// </summary>
+        public static string TotalPrice {
+            get {
+                return ResourceManager.GetString("TotalPrice", resourceCulture);
             }
         }
         

@@ -97,7 +97,7 @@ namespace LowFlightFare.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When specified, the number of adults should be an integer between 0 and 9.
+        ///   Looks up a localized string similar to For passanger number please use values between 1 to 9.
         /// </summary>
         public static string Passangers {
             get {

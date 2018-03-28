@@ -132,11 +132,20 @@
   <data name="Contact" xml:space="preserve">
     <value>Kontakt</value>
   </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
   <data name="CurrentEmail" xml:space="preserve">
     <value>Trenutna adresa pošte</value>
   </data>
   <data name="CurrentPassword" xml:space="preserve">
     <value>Trenutna lozinka</value>
+  </data>
+  <data name="DepartureDate" xml:space="preserve">
+    <value>Datum polaska</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Odrediše</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Pošta</value>
@@ -153,6 +162,9 @@
   <data name="IdentityUserSettings" xml:space="preserve">
     <value>Postavke profila</value>
   </data>
+  <data name="InboundFlight" xml:space="preserve">
+    <value>Povratni let</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Prijavi se</value>
   </data>
@@ -164,6 +176,21 @@
   </data>
   <data name="NewPassword" xml:space="preserve">
     <value>Nova lozinka</value>
+  </data>
+  <data name="NumberOfInterchanges" xml:space="preserve">
+    <value>Broj presjedanja</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>Polazište</value>
+  </data>
+  <data name="OutboundFlight" xml:space="preserve">
+    <value>Odlazni let</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Stranica</value>
+  </data>
+  <data name="PassangerNumber" xml:space="preserve">
+    <value>Broj putnika</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Lozinka</value>
@@ -177,6 +204,9 @@
   <data name="RememberMe" xml:space="preserve">
     <value>Zapamti me</value>
   </data>
+  <data name="ReturnDate" xml:space="preserve">
+    <value>Datum povratka</value>
+  </data>
   <data name="RoleCreate" xml:space="preserve">
     <value>Kreiraj novu ulogu</value>
   </data>
@@ -189,9 +219,24 @@
   <data name="SaveButtonLabel" xml:space="preserve">
     <value>Spremi</value>
   </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Pretraži</value>
+  </data>
+  <data name="SearchFareFlights" xml:space="preserve">
+    <value>Pretraži jeftine letove</value>
+  </data>
+  <data name="SearchFlights" xml:space="preserve">
+    <value>Pretraži letove</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Rezultati pretrage</value>
+  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Izaberi jezik</value>
     <comment>Label for Localization</comment>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Ukupna cijena</value>
   </data>
   <data name="UserApplicationSettings" xml:space="preserve">
     <value>Korisničke postavke</value>

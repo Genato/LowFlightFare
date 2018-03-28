@@ -42,6 +42,10 @@ namespace LowFlightFare
             services.AddTransient(typeof(SearchResultsDAL));
             services.AddTransient(typeof(LowFlightFareHub));
             services.AddTransient(typeof(SearchFlightsLogic));
+
+            services.AddTransient(typeof(LocaleDAL));
+            services.AddTransient(typeof(SettingsDAL));
+            services.AddTransient(typeof(SettingsLogic));
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///// Add SearchFlights to DI - Start - End
             //////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,24 @@
+﻿@using LowFlightFare.Localization
+
+@model LowFlightFare.ViewModels.SettingsViewModel
+
+
+<h2>@Labels.UserApplicationSettings</h2>
+
+@using (Html.BeginForm("Settings", "Settings", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m._Localization, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.SelectedLocale, new SelectList(Model._Localization, "ID", "_Localization", Model.SelectedLocale), new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-success" value=@Labels.SaveButtonLabel />
+        </div>
+    </div>
+
+}

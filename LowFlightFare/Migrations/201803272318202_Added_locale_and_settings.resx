@@ -117,22 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DepartureDate" xml:space="preserve">
-    <value>Departure date should be after today's date</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="DestinationIATACode" xml:space="preserve">
-    <value>The destination IATA code is not in right format</value>
-  </data>
-  <data name="NoItinerary" xml:space="preserve">
-    <value>There are no Itinerary for this parameters</value>
-  </data>
-  <data name="OriginIATACode" xml:space="preserve">
-    <value>The origin IATA code is not in right format</value>
-  </data>
-  <data name="Passangers" xml:space="preserve">
-    <value>For passanger number please use values between 1 to 9</value>
-  </data>
-  <data name="ReturnDate" xml:space="preserve">
-    <value>Return date should be after departure date</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

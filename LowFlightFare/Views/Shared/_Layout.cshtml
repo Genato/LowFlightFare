@@ -5,7 +5,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -34,7 +33,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("SearchFlights", "SearchFlights", "SearchFlights")</li>
+                    <li>@Html.ActionLink(Labels.SearchFareFlights, "SearchFlights", "SearchFlights")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink(Labels.UserApplicationSettings, "Settings", "Settings", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                 </ul>
             </div>
         </div>
@@ -43,7 +45,7 @@
         @RenderBody()
         <footer>
             <hr />
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - @Labels.SearchFareFlights</p>
         </footer>
     </div>
 

@@ -15,6 +15,8 @@ namespace LowFlightFare.DbContexts
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<SearchParameters> SearchParameters { get; set; }
         public DbSet<SearchResults> SearchResults { get; set; }
+        public DbSet<Locale> Locale { get; set; }
+        public DbSet<Settings> Settings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

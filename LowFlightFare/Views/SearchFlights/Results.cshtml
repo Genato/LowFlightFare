@@ -1,34 +1,35 @@
 ﻿@using PagedList.Mvc;
+@using LowFlightFare.Localization
 @using LowFlightFare.ViewModels
 
 @model ResultsViewModel
 
-<h2>Results</h2>
+<h2>@Labels.SearchResults</h2>
 
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead class="results-tableheader">
             <tr>
                 <th>
-                    <span>Polazište</span>
+                    <span>@Labels.Origin</span>
                 </th>
                 <th>
-                    <span>Odredište</span>
+                    <span>@Labels.Destination</span>
                 </th>
                 <th>
-                    <span>Datum polaska</span>
+                    <span>@Labels.DepartureDate</span>
                 </th>
                 <th>
-                    <span>Broj presjedanja</span>
+                    <span>@Labels.NumberOfInterchanges</span>
                 </th>
                 <th>
-                    <span>Broj putnika</span>
+                    <span>@Labels.PassangerNumber</span>
                 </th>
                 <th>
-                    <span>Ukupna cijena</span>
+                    <span>@Labels.TotalPrice</span>
                 </th>
                 <th>
-                    <span>Valuta</span>
+                    <span>@Labels.Currency</span>
                 </th>
             </tr>
         </thead>
@@ -37,7 +38,7 @@
             {
                 <tr>
                     <td colspan="4" class="inbound-outbound-header">
-                        Odlazni let
+                        @Labels.OutboundFlight
                     </td>
                     <td rowspan="4" class="results-td-shared-values">
                         <span class="results-span-shared-values"> @item.PassangerNumber </span>
@@ -65,7 +66,7 @@
                 </tr>
                 <tr>
                     <td colspan="4" class="inbound-outbound-header">
-                        Povratni let
+                        @Labels.InboundFlight
                     </td>
                 </tr>
                 <tr>
@@ -92,6 +93,6 @@
 </div>
 <hr />
 
-Page @(Model.SearchResults.PageCount < Model.SearchResults.PageNumber ? 0 : Model.SearchResults.PageNumber) of @Model.SearchResults.PageCount
+@Labels.Page @(Model.SearchResults.PageCount < Model.SearchResults.PageNumber ? 0 : Model.SearchResults.PageNumber) / @Model.SearchResults.PageCount
 
 @Html.PagedListPager(Model.SearchResults, pageNumber => Url.Action("Results", new { pageNumber, searchParametersID = Model.SearchResults.First().SearchParametersID })) 

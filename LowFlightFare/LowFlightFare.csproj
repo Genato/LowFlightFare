@@ -191,14 +191,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BusinessLogic\BusinessLogic.cs" />
     <Compile Include="BusinessLogic\SearchFlightsLogic.cs" />
+    <Compile Include="BusinessLogic\SettingsLogic.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LowFlightFareBaseController.cs" />
     <Compile Include="Controllers\SearchFlightsController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="DAL\Airport_IATA_CodesDAL.cs" />
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="DAL\CurrencyDAL.cs" />
+    <Compile Include="DAL\LocaleDAL.cs" />
     <Compile Include="DAL\SearchParametersDAL.cs" />
     <Compile Include="DAL\SearchResultsDAL.cs" />
+    <Compile Include="DAL\SettingsDAL.cs" />
     <Compile Include="DbContexts\LowFlightFareDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -275,6 +279,14 @@
     <Compile Include="Migrations\201803271444415_separated_inbound_from_outbound_properties.Designer.cs">
       <DependentUpon>201803271444415_separated_inbound_from_outbound_properties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803272318202_Added_locale_and_settings.cs" />
+    <Compile Include="Migrations\201803272318202_Added_locale_and_settings.Designer.cs">
+      <DependentUpon>201803272318202_Added_locale_and_settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803272357387_changed_propertie_name.cs" />
+    <Compile Include="Migrations\201803272357387_changed_propertie_name.Designer.cs">
+      <DependentUpon>201803272357387_changed_propertie_name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Airport_IATA_Code.cs" />
     <Compile Include="Models\Currency.cs" />
@@ -290,11 +302,14 @@
     <Compile Include="Models\ResponseModels\Result.cs" />
     <Compile Include="Models\SearchParameters.cs" />
     <Compile Include="Models\SearchResults.cs" />
+    <Compile Include="Models\Locale.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignalR\LowFlightFareHub.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ResultsViewModel.cs" />
     <Compile Include="ViewModels\SearchFlightsViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -388,6 +403,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SearchFlights\SearchFlights.cshtml" />
     <Content Include="Views\SearchFlights\Results.cshtml" />
+    <Content Include="Views\Settings\Settings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -455,6 +471,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803271444415_separated_inbound_from_outbound_properties.resx">
       <DependentUpon>201803271444415_separated_inbound_from_outbound_properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803272318202_Added_locale_and_settings.resx">
+      <DependentUpon>201803272318202_Added_locale_and_settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803272357387_changed_propertie_name.resx">
+      <DependentUpon>201803272357387_changed_propertie_name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

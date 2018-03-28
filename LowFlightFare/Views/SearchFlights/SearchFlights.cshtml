@@ -1,6 +1,8 @@
-﻿@model LowFlightFare.ViewModels.SearchFlightsViewModel
+﻿@using LowFlightFare.Localization
 
-<h2>SearchFlights</h2>
+@model LowFlightFare.ViewModels.SearchFlightsViewModel
+
+<h2>@Labels.SearchFlights</h2>
 <hr />
 
 @using (Html.BeginForm("SearchFlights", "SearchFlights", FormMethod.Post))
@@ -27,13 +29,13 @@
 
     <div class="form-group col-sm-3">
         @Html.LabelFor(m => m.SearchParameters.PassangerNumber)
-        @Html.TextBoxFor(m => m.SearchParameters.PassangerNumber, "", htmlAttributes: new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.SearchParameters.PassangerNumber, "", htmlAttributes: new { @class = "form-control", @type = "number", @min = "1", @max = "9" })
         @Html.LabelFor(m => m.SearchParameters.CurrencyID)
         @Html.DropDownListFor(m => m.SearchParameters.CurrencyID, new SelectList(Model.Currency, "ID", "CurrencyCode"), new { @class = "form-control" })
     </div>
 
     <div class="custom-div-button">
-        <input type="submit" value="Search" class="form-control btn btn-primary" />
+        <input type="submit" value=@Labels.SearchButton class="form-control btn btn-primary" />
     </div>
 
 }

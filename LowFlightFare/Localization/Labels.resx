@@ -132,11 +132,20 @@
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
   <data name="CurrentEmail" xml:space="preserve">
     <value>Current email</value>
   </data>
   <data name="CurrentPassword" xml:space="preserve">
     <value>Current password</value>
+  </data>
+  <data name="DepartureDate" xml:space="preserve">
+    <value>Departure date</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Destination</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
@@ -153,6 +162,9 @@
   <data name="IdentityUserSettings" xml:space="preserve">
     <value>Identity user settings</value>
   </data>
+  <data name="InboundFlight" xml:space="preserve">
+    <value>Inbound flight</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Log in</value>
   </data>
@@ -164,6 +176,21 @@
   </data>
   <data name="NewPassword" xml:space="preserve">
     <value>New password</value>
+  </data>
+  <data name="NumberOfInterchanges" xml:space="preserve">
+    <value>Number of intergchanges</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>Origin</value>
+  </data>
+  <data name="OutboundFlight" xml:space="preserve">
+    <value>Outbound flight</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="PassangerNumber" xml:space="preserve">
+    <value>Number of passangers</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -177,6 +204,9 @@
   <data name="RememberMe" xml:space="preserve">
     <value>Remember me</value>
   </data>
+  <data name="ReturnDate" xml:space="preserve">
+    <value>Return date</value>
+  </data>
   <data name="RoleCreate" xml:space="preserve">
     <value>Create new role</value>
   </data>
@@ -189,9 +219,24 @@
   <data name="SaveButtonLabel" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchFareFlights" xml:space="preserve">
+    <value>Search fare flights</value>
+  </data>
+  <data name="SearchFlights" xml:space="preserve">
+    <value>Search flights</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Search results</value>
+  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select language</value>
     <comment>Label for Localization</comment>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Total price</value>
   </data>
   <data name="UserApplicationSettings" xml:space="preserve">
     <value>User application settings</value>
