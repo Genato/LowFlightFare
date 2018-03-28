@@ -287,6 +287,10 @@
     <Compile Include="Migrations\201803272357387_changed_propertie_name.Designer.cs">
       <DependentUpon>201803272357387_changed_propertie_name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803281004471_checking_if_all_migrations_are_applied.cs" />
+    <Compile Include="Migrations\201803281004471_checking_if_all_migrations_are_applied.Designer.cs">
+      <DependentUpon>201803281004471_checking_if_all_migrations_are_applied.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Airport_IATA_Code.cs" />
     <Compile Include="Models\Currency.cs" />
@@ -477,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803272357387_changed_propertie_name.resx">
       <DependentUpon>201803272357387_changed_propertie_name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803281004471_checking_if_all_migrations_are_applied.resx">
+      <DependentUpon>201803281004471_checking_if_all_migrations_are_applied.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
