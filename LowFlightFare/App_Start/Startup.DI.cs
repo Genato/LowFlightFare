@@ -12,9 +12,9 @@ using System.Web.Mvc;
 
 namespace LowFlightFare
 {
-    public class DependencyInjectionConfig
+    public partial class Startup
     {
-        public static void ConfigureDependencyInjection()
+        public void ConfigureDependencyInjection()
         {
             // We will use Dependency Injection for all controllers and other classes, so we'll need a service collection
             ServiceCollection services = new ServiceCollection();
@@ -30,11 +30,9 @@ namespace LowFlightFare
             DependencyResolver.SetResolver(resolver);
         }
 
-        private static void ConfigureServices(IServiceCollection services)
+        private void ConfigureServices(IServiceCollection services)
         {
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ///// Add SearchFlights to DI - Start
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///// Add SearchFlights to DI - Start /////
             services.AddTransient(typeof(LowFlightFareDbContext));
             services.AddTransient(typeof(CurrencyDAL));
             services.AddTransient(typeof(Airport_IATA_CodesDAL));
@@ -42,19 +40,19 @@ namespace LowFlightFare
             services.AddTransient(typeof(SearchResultsDAL));
             services.AddTransient(typeof(LowFlightFareHub));
             services.AddTransient(typeof(SearchFlightsLogic));
+            ///// Add SearchFlights to DI - End /////
 
+            ///// Add Settings to DI - Start /////
             services.AddTransient(typeof(LocaleDAL));
             services.AddTransient(typeof(SettingsDAL));
             services.AddTransient(typeof(SettingsLogic));
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ///// Add SearchFlights to DI - Start - End
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///// Add Settings to DI - End /////
 
             // Add Controllers to DI(Dependency Injection)
             AddControllersAsServices(services, Assembly.GetExecutingAssembly().GetTypes().Where(type => typeof(Controller).IsAssignableFrom(type)));
         }
 
-        private static void AddControllersAsServices(IServiceCollection services, IEnumerable<Type> controllerTypes)
+        private void AddControllersAsServices(IServiceCollection services, IEnumerable<Type> controllerTypes)
         {
             foreach (var type in controllerTypes)
             {

@@ -7,10 +7,14 @@ using Owin;
 
 namespace LowFlightFare
 {
-    public class Startup
+    public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
+            //Add DI
+            ConfigureDependencyInjection();
+
+            //Add SignalR
             app.MapSignalR();
         }
     }

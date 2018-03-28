@@ -16,9 +16,6 @@ namespace LowFlightFare
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            //Add DI
-            DependencyInjectionConfig.ConfigureDependencyInjection();
         }
     }
 }
